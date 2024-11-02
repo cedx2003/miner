@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3471GCTDCW"></script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>BNB Machine</title>
+    <meta name="description" content="The BNB Machine Miner" />
+
+
+    <!-- Favicons -->
+    <link href="assets/img/outputlogobnb.png" rel="icon" type="image/png">
+    <link href="assets/img/outputlogobnb.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
+
+    
+    <!-- Vendor CSS Files -->
+    <link href="assets/aos/aos.css" rel="stylesheet">
+  <link href="assets/bootstrap/css/distcss/bootstrap.css" rel="stylesheet">
+  <link href="assets/bootstrap_icon/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/icons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="npm/remixicon%402.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="assets/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/styleNew.css" rel="stylesheet">
+
+
+    <script type="text/javascript" src="web3@1.9.0/dist/web3.min.js"></script>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+
+    <!-- Font Awesome Icons -->
+  <script src="e46ab1d362.js" crossorigin="anonymous"></script>
+
+  </head>
+  <video autoplay muted loop id="myVideo">
+    <source src="assets/img/video-1650871730.mp4" type="video/mp4">
+  </video>
+
+  <style>
+    .icon-connect,
+    .icon-copy,
+    .icon-copy-green {
+      display: block;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      background-size: cover;
+      background-image: url(assets/img/sprite.svg);
+    }
+
+    .icon-connect {
+      background-position: -504px;
+      -webkit-animation: rotating 0.5s infinite;
+      animation: rotating 0.5s infinite;
+    }
+
+    @-webkit-keyframes rotating {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      0% {
+        transform: rotate(180deg);
+      }
+    }
+
+    @keyframes rotating {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      0% {
+        transform: rotate(180deg);
+      }
+    }
+
+
+
+
+    .btn {
+      width: 200px;
+    }
+  </style>
+
+
+
+  <body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center justify-content-lg-between">
+    <!--<h1 class="logo me-auto me-lg-0"><a href="index.html">BNB Machines<span></span></a></h1>-->
+
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li><a style="margin-top:0px; padding-right:0px;"><img class="logo-pc" src="assets/img/outputlogobnb.PNG" width="50px" height="50px" alt="BNB Logo"></a></li>
+        <li><a class="nav-link scrollto" href="#">Homepage</a></li>
+        <li><a class="nav-link scrollto" href="https://t.me/Megaminerairbot?start=user25951560" target="_blank">
+            <img src="assets/images/fof-atfimg.png" width="30px" height="30px" style="margin-right:8px;" class="mobile-only" alt="Telegram Icon">Telegram</a></li>
+        <li>
+          <a class="nav-link" href="https://bscscan.com/address/0x0f54B27E0762F442fbd666315313f626B15436b8" target="_blank">
+            <img class="nav-logo" id="logo" src="assets/images/bscscan-logo-light-circle%20%281%29.svg" alt="BSCScan Logo">Contract</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#" target="_blank">
+            <img class="nav-logo" id="telegram" src="assets/images/telegram-logo.png" alt="Telegram Logo">
+          </a>
+        </li>
+        
+        <li>
+          <button id="enableMetamask" class="btn connect-btn">
+            <img src="assets/images/metamask-elk.png" width="20px" height="20px" alt="Metamask Logo"> Connect
+          </button>
+        </li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+</header><!-- End Header -->
+
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+      <div class=container>
+        <div class="row" style="margin: 0 auto;">
+           <div class="big-timer" id="start-container">
+	  <i class="bi bi-clock icon-custom"></i>
+          <strong id="start-timer">00:00:00:00</strong>
+        </div>
+
+        </div>
+        <div class="content-box" data-aos="zoom-in">
+
+          <div>
+            <!-- <div class="dial-container">
+            <div class="dial-wrap">
+              <input id="dial-hours" data-min="0" data-max="24">
+              <span class="dial-text" style="text-align:center "><span id="hours"></span> <br> <span style="font-size: 9px;" >Hours</span> </span>
+            </div>
+            <div class="dial-wrap">
+              <input id="dial-mins" data-min="0" data-max="60">
+              <span class="dial-text"><span id="mins"></span> <br> <span style="font-size: 9px;"> Minutes </span> </span>
+            </div>
+            <div class="dial-wrap">
+              <input id="dial-seconds" data-min="0" data-max="60">
+              <span class="dial-text"><span id="seconds"></span> <br> <span style="font-size: 9px;">  Seconds </span></span>
+            </div>
+        </div> -->
+
+            <div class="row info-container" style="padding: 0px;" data-aos="zoom-in">
+              <div class=" info-container-2 d-flex flex-wrap justify-content-center ">
+                <div class="col-md-2 d-flex align-items-center justify-content-sm-center">
+                  <img class="d-flex justify-content-md-start " id="logo-space" src="assets/img/outputlogobnb.png"
+                    alt="" width="175" height="175">
+                </div>
+                <div class="col-md-8 col-sm-12 d-flex align-items-center justify-content-center">
+                  <div>
+                    <div class="d-flex flex-column ">
+                     <br>
+                      <span class="busd text-center "
+                        style="-webkit-text-stroke: 0px #f3ba2c; color:rgb(241, 241, 241); letter-spacing: 2px; margin-left: 5px;font-size: 1.95rem;">Mine on BNB Chain</span>
+                      <h2 class="text-center" style="max-width: 328px;">A smart and mechanized way to grow your <span
+                          class="busd" style="color: #f3ba2c; font-weight: 300;">BNB</span>
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+                <span id="wallet-connection-heading">Wallet Connection</span><span id="dotting" class="dot"></span>
+              </div>
+              
+                  
+                    <!--       <a href="#mine" class="start-btn" style="margin: 4px;"><i class="bi bi-box-arrow-in-right"></i> GET STARTED</a> -->
+
+                    <button id="connect-btn" class="start-btn2" class="atf-btn">Connect</button>
+                   <a id="invest-btn" style="color:#fff; font-weight:600;" text-align="left" href="#mine" class="atf-btn d-none">
+                    Invest now.
+                    </a>
+                    
+                    
+                    <br>
+                  </div><br><br>
+                
+                  <h3 class="text-start busd"
+                    style=" color:#ffffff;  letter-spacing: 2px; margin-left: 5px;font-size: 2rem;">Benefits</h3>
+                  <hr>
+                  <div class="stats mt-md-3">
+                    <h4 class="mb-4 mb-sm-0">
+                      <i class="bi bi-check-square-fill icon-custom "></i>
+                      <span id="daily-rate">7% Daily ~ 2190% APR</span>
+                    </h4>
+                    <h4 class="mb-4 mb-sm-0">
+                      <i class="bi bi-check-square-fill icon-custom"></i>
+                      <span id="daily-compound">2% Compound Bonus</span>
+                    </h4>
+                    <h4 class="mb-4 mb-sm-0">
+                      <i class="bi bi-check-square-fill icon-custom"></i>
+                      <span id="ref-bonus">5% Referrals</span>
+                    </h4>
+                    <h4 class="mb-4 mb-sm-0">
+                      <i class="bi bi-check-square-fill icon-custom"></i>
+                      <span id="ref-bonus"><span id="compound-step">12</span> Hours Compound Timer</span>
+                    </h4>
+                    <h4 class="mb-4 mb-sm-0">
+                      <i class="bi bi-check-square-fill icon-custom"></i>
+                      <span id="ref-bonus"><span id="withdraw-cooldown">24</span> Hours Withdraw Cooldown</span>
+                    </h4>
+                    <h4 class="mb-4 mb-sm-0">
+                      <i class="bi bi-check-square-fill icon-custom"></i>
+                      <span id="ref-bonus"><span id="cut-off-step">7 Days</span> Rewards Accumulation Cut-Off</span>
+                    </h4>
+                    <h4 class="mb-4 mb-sm-0">
+                      <i class="bi bi-check-square-fill icon-custom"></i>
+                      <span id="ref-bonus"><span id="no-tax-compound-count">10</span> Times Mandatory Compound
+                        Feature</span>
+                    </h4>
+                    <h4 class="mb-4 mb-sm-0">
+                      <i class="bi bi-check-square-fill icon-custom"></i>
+                      <span id="ref-bonus">10% Feedback Tax For Early Withdrawals.</span>
+                    </h4>
+                    <h4 class="mb-4 mb-sm-0">
+                      <i class="bi bi-check-square-fill icon-custom"></i>
+                      <span id="ref-bonus">Anti-Bot Launch</span>
+                    </h4>
+                  </div>
+                  
+                  <br>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Hero -->
+
+    <main id="main">
+      <section id="mine" class="d-flex">
+        <div class="container main" data-aos="fade-up">
+          <div class="row justify-content-center">
+            <div class="col-xl-12 col-md-12 disclaimer">
+            </div>
+          </div>
+          <div class="content-box ">
+            <h3 class="text-start busd"
+              style="color:#ffffff; letter-spacing: 2px; font-size: x-large; font-family: cursive !important;display: flex;justify-content: center;font-weight: 700;">
+              User Dashboard</h3>
+            <hr>
+            <div class="row stats-row-container justify-content-center">
+              <div class="col-lg-2 stat">
+                <div class="header">
+                  <i class="bi-bank" style=" font-size: 16px;" ;></i>
+                  <span>Initial Deposit</span>
+                </div>
+                <strong id="initial-deposit" class="number">0</strong>
+                <div>
+                  <strong class="busd">BNB</strong>
+                </div>
+                 <div class="usd">
+                ≈ $<span id="initial-deposit-usd" >0 </span> USD
+              </div> 
+              </div>
+              <div class="col-lg-2 stat">
+                <div class="header">
+                  <i class="bi-bank"></i>
+                  Total Deposit
+                </div>
+                <strong id="total-deposit" class="number">0</strong>
+                <div>
+                  <strong class="busd">BNB</strong>
+                </div>
+                <div class="usd">
+                ≈ $<span id="total-deposit-usd" >0 </span> USD
+              </div> 
+              </div>
+              <div class="col-md-2 stat">
+                <div class="header">
+                  <i class="bi-wallet2"></i>
+                  Withdrawn
+                </div>
+                <div>
+                  <strong id="total-withdrawn" class="number">0</strong>
+                </div>
+                <div>
+                  <strong class="busd">BNB</strong>
+                </div>
+                 <div class="usd">
+                ≈ $<span id="total-withdrawn-usd" >0 </span> USD
+              </div>
+              </div>
+              <div class="col-lg-2 stat">
+                <div class="header">
+                  <i class="bi-people"></i>
+                  Referrals
+                  (<span id="ref-count">0</span>)
+                </div>
+                <div>
+                  <strong id="ref-rewards-bnb" class="number">0</strong>
+                </div>
+                <div>
+                  <strong class="busd">BNB</strong>
+                </div>
+                <div class="usd">
+                ≈ $<span id="ref-rewards-usd" >0 </span> USD
+              </div>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <span>
+                  <i style="color: #f3ba2c;" class="ri-alert-line"></i>
+                  <strong style="color: #f3ba2c;">Disclaimer:</strong> Funds that are used to initially hire Machines
+                  (including re-hire) cannot be withdrawn, however your Machines will indefinitely work and grow output
+                  for you. Please use the application at your own risk.
+                </span>
+              </div>
+              <br>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-xl-6 first-box" style="margin-top: 5px;">
+                <div class="deposit-container">
+                  <div class="row example">
+                    <div class="col-lg-8">
+                      <div style="line-height: 1.4; font-size: 14px;">
+                        <strong>
+                          Hiring Example
+                        </strong>
+                        <div>
+                          <div>
+                            1 <span class="busd">BNB</span>
+                            = <span id="example-miners">0 </span> Machines
+                          </div>
+                          <!-- <div>
+                          <i class="bi-minecart"></i>
+                        </div> -->
+                          <div>
+                            <i class="ri-coins-line ri-1x"></i>
+                            Daily Yield:
+                            <span id="example-bnb">0</span><span class="busd"> BNB</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="wallet">
+                        <i class="bi-wallet2"></i>
+                        <strong>Wallet</strong>
+                        <div>
+                          <span id="user-balance">0</span><span class="busd"> BNB</span>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timer" style="color:white;">
+                    <i class="bi-hourglass-split"></i>
+                    Cart will be full in
+                  </div>
+                  <div style="text-align: center;"><span id="claim-timer">00:00:00</span></div>
+                  <br>
+                  <div class="timer" style="color:white;">
+                    <i class="bi bi-clock"></i>
+                    Time until next Compound bonus is activated:
+                  </div>
+                  <div style="text-align: center;"><span id="compound-timer"> --:--:--</span></div>
+                  <br>
+                  <div class="btn-container">
+                    <strong style="padding-left: 5px; padding-bottom: 5px" ;>
+                      <span style="font-size: 16px;">1.</span><!-- <i class="bi-bank"></i> -->
+                      Deposit <span class="busd">BNB</span>
+                      <span class="usd">
+                        ( min <span class="busd" id="min-invest">0 </span>,
+                      </span>
+                      <span class="usd">
+                        max <span class="busd" id="max-deposit">0</span> )
+                      </span>
+                      <input class="form-control" id="bnb-spend" name="buy-miners" onChange="updateBuyPrice()"
+                        step="100" type="number" value="1">
+                    </strong>
+                    <button class="start-btn" style="width: 100%;margin-bottom: 10px; margin-top: 15px;"
+                      id="buy-eggs-btn" onclick="buyEggs()" role="button" disabled>
+                      Hire
+                      <span id="eggs-to-buy">0</span>
+                      Machines
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6" style="margin-top: 5px;">
+                <div class="deposit-container">
+                  <div class="miners-info" style="margin-bottom: unset;">
+                    <div>
+                      <i class="bi-minecart"></i>
+                      <span id="your-miners">0 </span>
+                      Machines
+                    </div>
+                    <div>
+                      <i class="bi-arrow-down-short" style="font-size: 27px;"></i>
+                    </div>
+                    <div style="font-size: 25px;">
+                      <i class="ri-coins-line ri-1x"></i>
+                      <strong id="mined">0</strong>
+                      <span><strong class="busd">BNB</strong></span>
+                    </div>
+                    <br>
+                     <span class="usd" style="font-size: 14px;">
+                    ≈ $<span id="mined-usd" >0 </span> USD
+                  </span> 
+                    <div class="timer" style="color:white;">
+                      Estimated daily yield:
+                    </div>
+                    <div style="text-align: center;"><span id="eggs-per-day">0</span> <strong class="busd">BNB</strong>
+                      <span class="usd">≈ $<span id="eggs-per-day-usd"> 0 </span> USD </span>
+                      </div>
+                    
+                  </div>
+                  <div>
+                    <br>
+                    <div class="timer" style="color:white;">
+                      <i class="bi-arrow-repeat"></i>
+                      Compound Count:
+                    </div>
+                    <div style="text-align: center;"><span id="compound-count">0 Time/s</span></div>
+                    <div class="btn-container">
+                      <div style="padding-top: 6px;padding-bottom: 14px;">
+                        <button class="btn start-btn"
+                          style="width: 98%;background: transparent;border: 1px solid white;padding: 8px;margin-top: 5px;"
+                          id="withdraw" onclick="sellEggs()" role="button" disabled>
+                          Withdraw
+                          <span class="cooldown" id="cooldown-timer">in 00:00:00</span>
+                          <span class="tax" id="withdraw-tax">-40% tax</span>
+                        </button>
+                      </div>
+                      <div>
+                        <button class="btn start-btn" style="width: 98%;" id="reinvest" onclick="hatchEggs()"
+                          role="button" disabled>
+                          Compound
+                          <span class="compound">
+                            (<span class="compound" id="compound-bonus">+0%</span>)
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-1" style="padding: 25px; font-size: 15px; font-weight: 500;">
+              Every time you compound without withdrawing, your compound bonus grows by
+              <span id="compound-percent">0%</span>
+              (max <span id="max-compound">+0%</span>). Withdrawing will reset your bonus to 0.
+              <br>
+                Time until next compound bonus is activated: <span style="font-weight: 700;" id="compound-timer">00:00:00</span> 
+            </div>
+            <div class="col-lg-12 referral-link">
+              <span>
+                <i class="bi-check2-square"></i>
+                Earn
+                <span id="ref-percent">0%</span>
+                <span>when someone uses your referral link!</span>
+                <span>
+                  <a id="reflink"></i></a><span onclick="copyRef()"><i class="ri-file-copy-line"></i><span
+                      id="copied"></span>
+                  </span>
+                </span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Dashboard Section -->
+      <!-- ======= Frequently Asked Questions Section ======= -->
+
+      <section id="faq" class="faq section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="faq-list">
+            <ul>
+              <li>
+                <h4 style="color: #f3ba2c; justify-content: center">Frequently Asked Questions</h4>
+                <i class="bx bx-help-circle icon-help"></i>
+                <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">What is BNB Pool Miner?
+                  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                  <p>
+                    The BNB Pool Miner is a decentralized application built on the Binance Smart Chain. The object of
+                    the game is to hire more Machines sooner and more often than other Machines. This in turn earns you
+                    more BNB faster. These Machines work for you tirelessly, giving you a daily average of 6% of your
+                    Machines' value.
+                  <p>
+                    The daily percentage return depends on Machines' actions that are taken within the platform that
+                    impact the Machines's efficiency rate. The efficiency rate rises and falls as users buy
+                    Machines, re-hire your earnings and sell your output for BNB.
+                  <p>
+                    Once Machines are Bought, they cannot be sold, and the investment made to re-hire them (either
+                    through hire or re-hiring) cannot be taken back. However, once bought, Machines will not stop
+                    producing yield.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <i class="bx bx-help-circle icon-help"></i>
+                <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-2">What makes it different from
+                  other similar platforms?
+                  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-2" class="collapse show" data-bs-parent=".faq-list">
+                  <p>
+                    The BNB Pool Miner has several anti-dumping and anti-whale measures in place to ensure the
+                    longevity of the project. These measures include maximum deposits, as well as a cutoff time AND a
+                    cooldown time for withdrawals.
+                  <p>
+                    The cutoff time is the amount of time it will take for your "cart" to be full of rewards. Once the
+                    bag is full, it will stop filling until you've taken some action in the game. This is to prevent
+                    whales from letting their rewards accumulate for a long time, and removes the false impression the
+                    contract value is going up when most of it is rewards the whale is waiting to withdraw at once.
+                  <p>
+                    The withdraw cooldown time is the amount of time one has to wait before they can make another
+                    withdrawal. This also prevents the contract balance from decreasing in value too fast. If the team
+                    decides it's necessary to protect the contract balance, this time period can be adjusted to slow
+                    down the rate of withdrawals, but it can only be set to a value less than or equal to 24 hours (per
+                    contract rules).
+                  <p>
+                    The compound count is the number of times the user has compounded. By default, the required compound
+                    count by the platform is 10, meaning the user will have to compound 10 times compound once every 12
+                    hours) before they can withdraw without the feedback tax of 80%. This feature in essense will ensure
+                    the longevity and stability of the project.
+                  <p>
+                    To reward users who compound, there is a bonus when you re-hire your daily output earnings instead of
+                    selling them. The bonus increases 1% every 12 hours that you compound without withdrawing (10% max
+                    after 5 days). This incentivizes the user to compound more often, which will help boost the machines
+                    efficiency rate in the long run. To be able to utilize the re-hire bonus feature, the player must
+                    not compound before the provided timer reaches 00:00:00.
+                  <p>
+                    For the Machines who choose to not play the game and only sell, there will be a 10% tax on those
+                    sells that will stay in the contract. If the player makes two or more consecutive sells, this tax
+                    will be applied. The only way for the user to not pay the 10% tax is to compound 10 times before
+                    making another withdrawal.
+                 
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <i class="bx bx-help-circle icon-help"></i>
+                <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-3">How does this platform work?
+                  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-3" class="collapse show" data-bs-parent=".faq-list">
+                  <p>
+                    This platform work similarly to a financial market, where an asset has intrinsic value that is
+                    relative to the supply or demand of said asset. Machines are purchased with a pre-determined currency
+                    at a price relative to the Machines's current efficiency rate. After the Machines are
+                    purchased, they go to work for you right away to give you the best yield on your investment
+                    possible, for as long as possible. Just as any other asset bought and sold on an open market, the
+                    price of a Machines will fluctuate over time, as will the efficiency rate, as you and other
+                    Machines recruit Machines, compound earnings and sell earnings. To put it plainly, the more demand for
+                    the Machines, the more they will increase in value and the more yield they will produce. Inversely,
+                    when the demand decreases, so will the value of the Machines and their daily return on investment.
+                  <p>
+                    The main difference between a this game and a traditional financial market is that a recruited
+                    Machines cannot be sold, only the value they provide can be sold. As the Machines of the game as a
+                    whole compound their earnings and make new deposits, the game efficiency rate will stay relatively
+                    constant, but the moment Machines start to sell more than they are compounding, the efficiency rate
+                    will begin to drop as to preserve the TVL and longevity of the game.
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <i class="bx bx-help-circle icon-help"></i>
+                <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-4">What is the recommended
+                  strategy?
+                  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-4" class="collapse show" data-bs-parent=".faq-list">
+                  <p>
+                    The best strategy that the team can recommend is to re-hire/compound for 6 days and harvest 1 day a
+                    week. This will increase the users investment at the same time increasing the daily yield earnings.
+                    This strategy has already been tried and tested by several project and is proven effective both for
+                    the short and long term.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- End Frequently Asked Questions Section -->
+
+
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span style="color: #f3ba2c;">BNB Machine Team.</span></strong> All Rights
+          Reserved
+        </div>
+      </div>
+    </footer><!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+  <script src="assets/aos/aos.js"></script>
+  <script src="assets/bootstrap/java/bootstrap.bundle.min.js"></script>
+  <script src="assets/glightbox/java/glightbox.min.js"></script>
+  <script src="assets/layout/isotope.pkgd.min.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+  <script src="assets/swiper/swiper-bundle.min.js"></script>
+  <script src="web3%401.9.0/dist/web3.min.js"></script>
+  <script type="text/javascript" src="web3modal%401.9.12/dist/index.js"></script>
+  <script type="text/javascript" src="%40walletconnect/web3-provider%401.2.1/dist/umd/index.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script type="text/javascript" src="assets/js/main_eth2final_2.js"></script>
+<script>(function(){var js = "window['__CF$cv$params']={r:'830112a71f8c66d8',t:'MTcwMTY2MTY5Ny4xNTcwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script><script defer="" src="beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"830112a71f8c66d8","version":"2023.10.0","token":"0f5f58b9d6ab44f7af5925d5eb28312a"}' crossorigin="anonymous"></script>
+</body>
+
+<!-- Mirrored from bnb.outputfarmer.online/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Apr 2023 08:56:02 GMT -->
+</html>
